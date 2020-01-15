@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 
 import ColorListItem from './ColorListItem'
+import ColorRangePicker from './ColorRangePicker'
 import colors from '../configs/colorList'
 
 const ColorPicker = () => {
@@ -21,19 +22,10 @@ const ColorPicker = () => {
         onDropdownOpen(false)
       }}>
       <div className='color-picker'>
-        <input
-          type='text'
-          className='color-input'
-          value={value}
-          onChange={e => onChange(e.target.value)}
-        />
+        <input type='text' className='color-input' value={value} onChange={e => onChange(e.target.value)} />
         <div className='box'>
           <div
-            className={
-              rgbDropdownOpened
-                ? 'color-preview-box opened'
-                : 'color-preview-box'
-            }
+            className={rgbDropdownOpened ? 'color-preview-box opened' : 'color-preview-box'}
             style={{ backgroundColor: value }}
             onClick={e => {
               e.stopPropagation()
@@ -44,7 +36,7 @@ const ColorPicker = () => {
           {rgbDropdownOpened ? (
             <div className='arrow-dropdown rgb'>
               <div className='arrow-up rgb'></div>
-              <div></div>
+              <ColorRangePicker currentColor={value} />
             </div>
           ) : null}
         </div>
