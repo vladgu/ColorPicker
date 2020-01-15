@@ -1,11 +1,12 @@
 import React from 'react';
 import ColorPicker from './components/ColorPicker'
 
-function App() {
+const App = () => {
+
   return (
-    <div className="app">
+    <>
       <ColorPicker />
-    </div>
+    </>
   );
 }
 
