@@ -28,7 +28,7 @@ const ColorPicker = () => {
         <Input color={value} stateColorChange={onChange} preStateColorChange={onChangeRGB} />
 
         <PreviewBox
-          color={value !== rgbValue ? rgbValue : value}
+          color={value !== rgbValue && rgbDropdownOpened ? rgbValue : value}
           rgbDropdownOpenedProp={rgbDropdownOpened}
           onRGBDropdownOpenProp={onRGBDropdownOpen}
           onDropdownOpenProp={onDropdownOpen}
