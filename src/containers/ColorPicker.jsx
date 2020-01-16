@@ -1,9 +1,9 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
-import ColorListItem from './ColorListItem'
-import ColorRangePicker from './ColorRangePicker'
 import colors from '../configs/colorList'
+import ListItem from '../components/ColorListItem/ListItem'
+import RangePicker from '../components/ColorRangePicker/RangePicker'
+import PreviewBox from '../components/ColorPreviewBox/PreviewBox'
 
 const ColorPicker = () => {
   const [value, onChange] = useState(colors[0].code)
@@ -11,7 +11,7 @@ const ColorPicker = () => {
   const [dropdownOpened, onDropdownOpen] = useState(false)
 
   useEffect(() => {
-    console.log(value, dropdownOpened, rgbDropdownOpened)
+    // console.log(value, dropdownOpened, rgbDropdownOpened)
   })
 
   return (
@@ -24,19 +24,16 @@ const ColorPicker = () => {
       <div className='color-picker'>
         <input type='text' className='color-input' value={value} onChange={e => onChange(e.target.value)} />
         <div className='box'>
-          <div
-            className={rgbDropdownOpened ? 'color-preview-box opened' : 'color-preview-box'}
-            style={{ backgroundColor: value }}
-            onClick={e => {
-              e.stopPropagation()
-              onRGBDropdownOpen(!rgbDropdownOpened)
-              onDropdownOpen(false)
-            }}
+          <PreviewBox
+            color={value}
+            rgbDropdownOpenedProp={rgbDropdownOpened}
+            onRGBDropdownOpenProp={onRGBDropdownOpen}
+            onDropdownOpenProp={onDropdownOpen}
           />
           {rgbDropdownOpened ? (
             <div className='arrow-dropdown rgb'>
               <div className='arrow-up rgb'></div>
-              <ColorRangePicker currentColor={value} />
+              <RangePicker currentColor={value} boxColorChange={onChange} />
             </div>
           ) : null}
         </div>
@@ -53,7 +50,7 @@ const ColorPicker = () => {
             <div className='arrow-dropdown'>
               <div className='arrow-up'></div>
               {colors.map((obj, index) => (
-                <ColorListItem
+                <ListItem
                   key={String(index)}
                   currentColor={value}
                   colorName={obj.name}

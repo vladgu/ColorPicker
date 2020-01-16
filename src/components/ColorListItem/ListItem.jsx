@@ -1,15 +1,8 @@
 import React from 'react'
 
-const ColorListItem = ({
-  colorName,
-  colorCode,
-  clickHandler,
-  currentColor,
-}) => (
+const ListItem = ({ colorName, colorCode, clickHandler, currentColor }) => (
   <div
-    className={
-      currentColor === colorCode ? 'color-list-item current' : 'color-list-item'
-    }
+    className={currentColor === colorCode ? 'color-list-item current' : 'color-list-item'}
     onClick={() => {
       clickHandler(colorCode)
     }}>
@@ -18,4 +11,4 @@ const ColorListItem = ({
   </div>
 )
 
-export default ColorListItem
+export default ListItem
