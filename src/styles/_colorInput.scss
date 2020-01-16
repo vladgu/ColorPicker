@@ -2,12 +2,10 @@
   background-color: $base-white-color;
   box-shadow: none;
   border: none;
-  width: 10rem;
-  height: calc(100% - 2px);
   color: $base-grey-color-2;
-  transition: 0.3s all;
+  transition: 0.2s all;
   &:focus {
     color: $base-black-color;
-    transition: 0.3s all;
+    transition: 0.2s all;
   }
 }

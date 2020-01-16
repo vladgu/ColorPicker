@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, memo } from 'react'
 
 import colors from '../configs/colorList'
 import Input from '../components/ColorInput/Input'
@@ -25,7 +25,7 @@ const ColorPicker = () => {
         onDropdownOpen(false)
       }}>
       <div className='color-picker'>
-        <Input color={value !== rgbValue ? rgbValue : value} setColor={onChange} />
+        <Input color={value} stateColorChange={onChange} preStateColorChange={onChangeRGB} />
 
         <PreviewBox
           color={value !== rgbValue ? rgbValue : value}
@@ -67,4 +67,4 @@ const ColorPicker = () => {
   )
 }
 
-export default ColorPicker
+export default memo(ColorPicker)
