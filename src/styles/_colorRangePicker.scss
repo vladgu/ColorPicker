@@ -1,25 +1,30 @@
 .color-range-picker-wrapper {
-  height: 2.5rem;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   .color-range-picker-paragraph {
-    margin-right: 0.5rem;
+    margin-right: 10px;
   }
 
   .color-range-picker {
-    width: 100%;
+    background-color: $base-grey-color-3;
+  }
+
+  .color-range-picker-rgb-paragraph {
+    text-align: right;
+    width: 40px;
   }
 }
 .buttons-wrapper {
-  height: 2.5rem;
+  height: 50px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   .cancel-button {
     cursor: pointer;
-    padding: 0.2rem 1rem;
+    padding: 5px 20px;
     background-color: $base-grey-color-3;
     border: 1px solid $base-rose-color;
     border-radius: 5px;
@@ -41,7 +46,8 @@
 
   .ok-button {
     cursor: pointer;
-    padding: 0.2rem 1rem;
+    padding: 5px 20px;
+
     background-color: $base-grey-color-3;
     border: 1px solid $base-green-color;
     border-radius: 5px;
@@ -62,6 +68,6 @@
   }
 
   .cancel-button {
-    margin-right: 0.5rem;
+    margin-right: 10px;
   }
 }

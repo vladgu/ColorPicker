@@ -30,7 +30,6 @@ const RangePicker = ({ currentColor, stateColorChange, preStateColorChange }) =>
         <div
           className='cancel-button'
           onClick={e => {
-            e.stopPropagation()
             stateColorChange(currentColor)
             setRed(r)
             setGreen(g)
