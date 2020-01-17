@@ -21,23 +21,25 @@ const RangePicker = ({ currentColor, stateColorChange, preStateColorChange }) =>
     preStateColorChange(rgbToHex(`rgb(${red},${green},${blue})`))
   })
 
+  const onClickHandlerCancel = () => {
+    stateColorChange(currentColor)
+    setRed(r)
+    setGreen(g)
+    setBlue(b)
+  }
+
   return (
     <>
-      <RangePickerItem letter={'R'} color={red} setColor={setRed} />
-      <RangePickerItem letter={'G'} color={green} setColor={setGreen} />
-      <RangePickerItem letter={'B'} color={blue} setColor={setBlue} />
+      <RangePickerItem letter={ 'R' } color={ red } setColor={ setRed } />
+      <RangePickerItem letter={ 'G' } color={ green } setColor={ setGreen } />
+      <RangePickerItem letter={ 'B' } color={ blue } setColor={ setBlue } />
       <div className='buttons-wrapper'>
         <div
           className='cancel-button'
-          onClick={e => {
-            stateColorChange(currentColor)
-            setRed(r)
-            setGreen(g)
-            setBlue(b)
-          }}>
+          onClick={ onClickHandlerCancel }>
           Cancel
         </div>
-        <div className='ok-button' onClick={() => stateColorChange(rgbToHex(`rgb(${red},${green},${blue})`))}>
+        <div className='ok-button' onClick={ () => stateColorChange(rgbToHex(`rgb(${red},${green},${blue})`)) }>
           Ok
         </div>
       </div>
